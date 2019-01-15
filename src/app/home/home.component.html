@@ -1,59 +1,56 @@
-<!-- Always shows a header, even in smaller screens. -->
-<div class="mdl-layout">
-  <main class="mdl-layout__content">
-    <div class="page-content">
-      <div class="mdl-grid">
-        <div class="mdl-cell mdl-cell--2-col" *ngFor="let movie of searchResult; let i = index">
-          <div [ngStyle]="{
+<main class="mdl-layout__content">
+  <div class="page-content">
+    <div class="mdl-grid">
+      <div class="mdl-cell mdl-cell--2-col" *ngFor="let movie of searchResult; let i = index">
+        <div [ngStyle]="{
               'background': '#fff url(https://image.tmdb.org/t/p/w500/' + movie.poster_path + ') no-repeat',
               'background-size': 'contain'
             }"
-            class="demo-card-wide mdl-card mdl-shadow--2dp" *ngIf="i < 12">
-            <div class="mdl-card__title">
-              <h2 class="mdl-card__title-text">{{ movie.original_title }}</h2>
-            </div>
-            <div class="mdl-card__supporting-text">
-              {{ movie.overview | slice: 0:100 }}...
-            </div>
-            <div class="mdl-card__actions mdl-card--border">
-              <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
-                Get Started
-              </a>
-            </div>
-            <div class="mdl-card__menu">
-              {{ movie.release_date | date:'mediumDate' }}
-              <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
-                <i class="material-icons">share</i>
-              </button>
-            </div>
+          class="demo-card-wide mdl-card mdl-shadow--2dp" *ngIf="i < 12">
+          <div class="mdl-card__title">
+            <h2 class="mdl-card__title-text">{{ movie.original_title }}</h2>
+          </div>
+          <div class="mdl-card__supporting-text">
+            {{ movie.overview | slice: 0:100 }}...
+          </div>
+          <div class="mdl-card__actions mdl-card--border">
+            <a routerLink="/movie/{{ movie.id }}" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+              View info
+            </a>
+          </div>
+          <div class="mdl-card__menu">
+            {{ movie.release_date | date:'mediumDate' }}
+            <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
+              <i class="material-icons">share</i>
+            </button>
           </div>
         </div>
-        <div class="mdl-cell mdl-cell--2-col" *ngFor="let popular of popularMovies; let i = index">
-          <div [ngStyle]="{
+      </div>
+      <div class="mdl-cell mdl-cell--2-col" *ngFor="let popular of popularMovies; let i = index">
+        <div [ngStyle]="{
             'background': '#fff url(https://image.tmdb.org/t/p/w500/' + popular.poster_path + ') no-repeat',
             'background-size': 'contain'
           }"
-            class="demo-card-wide mdl-card mdl-shadow--2dp" *ngIf="i < 12">
-            <div class="mdl-card__title">
-              <h2 class="mdl-card__title-text">{{ popular.original_title }}</h2>
-            </div>
-            <div class="mdl-card__supporting-text">
-              {{ popular.overview | slice: 0:100 }}...
-            </div>
-            <div class="mdl-card__actions mdl-card--border">
-              <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
-                Get Started
-              </a>
-            </div>
-            <div class="mdl-card__menu">
-              {{ popular.release_date | date:'mediumDate' }}
-              <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
-                <i class="material-icons">share</i>
-              </button>
-            </div>
+          class="demo-card-wide mdl-card mdl-shadow--2dp" *ngIf="i < 12">
+          <div class="mdl-card__title">
+            <h2 class="mdl-card__title-text">{{ popular.original_title }}</h2>
+          </div>
+          <div class="mdl-card__supporting-text">
+            {{ popular.overview | slice: 0:100 }}...
+          </div>
+          <div class="mdl-card__actions mdl-card--border">
+            <a routerLink="/movie/2" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+              View info
+            </a>
+          </div>
+          <div class="mdl-card__menu">
+            {{ popular.release_date | date:'mediumDate' }}
+            <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
+              <i class="material-icons">share</i>
+            </button>
           </div>
         </div>
       </div>
     </div>
-  </main>
-</div>
+  </div>
+</main>

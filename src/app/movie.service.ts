@@ -25,4 +25,8 @@ export class MovieService {
   getTopRatedMovies() {
     return this._http.get(`${this.apiUrl}movie/top_rated?api_key=${this.apiKey}&language=en-US&page=1`)
   }
+
+  getMovie(id: number) {
+    return this._http.get(`${this.apiUrl}movie/${id}?api_key=${this.apiKey}`);
+  }
 }
